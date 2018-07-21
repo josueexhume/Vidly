@@ -1,4 +1,4 @@
-﻿@model Vidly.Models.RegisterViewModel
+﻿@model Vidly.Models.Account.ViewModels.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -24,9 +24,21 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.DriverLicenseNo, new { @class = "col-md-4 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DriverLicenseNo, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Phone, new { @class = "col-md-4 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
