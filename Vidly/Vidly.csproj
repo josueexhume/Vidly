@@ -20,7 +20,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44369</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -265,15 +265,38 @@
     <Compile Include="Migrations\201807030437343_MadeMovieNameRequired.Designer.cs">
       <DependentUpon>201807030437343_MadeMovieNameRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807190038270_SeedUsers.cs" />
+    <Compile Include="Migrations\201807190038270_SeedUsers.Designer.cs">
+      <DependentUpon>201807190038270_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807190241074_AddDriverLicenseNoToApplication.cs" />
+    <Compile Include="Migrations\201807190241074_AddDriverLicenseNoToApplication.Designer.cs">
+      <DependentUpon>201807190241074_AddDriverLicenseNoToApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807210103252_AddPhoneNumberToUserProfile.cs" />
+    <Compile Include="Migrations\201807210103252_AddPhoneNumberToUserProfile.Designer.cs">
+      <DependentUpon>201807210103252_AddPhoneNumberToUserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Account\ViewModels\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="Models\Account\ViewModels\ExternalLoginListViewModel.cs" />
+    <Compile Include="Models\Account\ViewModels\ForgotPasswordViewModel.cs" />
+    <Compile Include="Models\Account\ViewModels\ForgotViewModel.cs" />
+    <Compile Include="Models\Account\ViewModels\SendCodeViewModel.cs" />
+    <Compile Include="Models\Account\ViewModels\VerifyCodeViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\FacebookAuthentication.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Account\ViewModels\LoginViewModel.cs" />
+    <Compile Include="Models\Identity\ApplicationDbContext.cs" />
+    <Compile Include="Models\Identity\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Account\ViewModels\RegisterViewModel.cs" />
+    <Compile Include="Models\Account\ViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -619,7 +642,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
@@ -627,6 +650,7 @@
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -676,6 +700,15 @@
     <EmbeddedResource Include="Migrations\201807030437343_MadeMovieNameRequired.resx">
       <DependentUpon>201807030437343_MadeMovieNameRequired.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190038270_SeedUsers.resx">
+      <DependentUpon>201807190038270_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807190241074_AddDriverLicenseNoToApplication.resx">
+      <DependentUpon>201807190241074_AddDriverLicenseNoToApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807210103252_AddPhoneNumberToUserProfile.resx">
+      <DependentUpon>201807210103252_AddPhoneNumberToUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -696,7 +729,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>49596</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49596/</IISUrl>
+          <IISUrl>https://localhost:44369/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
