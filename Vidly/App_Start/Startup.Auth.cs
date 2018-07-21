@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Vidly.Models;
+using Vidly.Models.Identity;
 
 namespace Vidly
 {
@@ -54,9 +55,10 @@ namespace Vidly
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            //created static FacebookAuthentication class to no exposed to users who view on github
+            app.UseFacebookAuthentication(
+               appId: FacebookAuthentication.AppId,
+               appSecret: FacebookAuthentication.AppSecret);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
